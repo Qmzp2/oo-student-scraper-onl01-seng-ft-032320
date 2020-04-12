@@ -22,13 +22,13 @@ end
 
   end
 
- def add_student_attributes(attributes_hash)
-    self.send("twitter=", attributes_hash[:twitter])
-    self.send("linkedin=", attributes_hash[:linkedin])
-    self.send("github=", attributes_hash[:github])
-    self.send("blog=", attributes_hash[:blog])
-    self.send("profile_quote=", attributes_hash[:profile_quote])
-    self.send("bio=", attributes_hash[:bio])
+ def add_student_attributes(hash_browns) #hash for student
+    self.send("twitter=", hash_browns[:twitter])
+    self.send("linkedin=", hash_browns[:linkedin])
+    self.send("github=", hash_browns[:github])
+    self.send("blog=", hash_browns[:blog])
+    self.send("profile_quote=", hash_browns[:profile_quote])
+    self.send("bio=", hash_browns[:bio])
   end
 
  def self.all
