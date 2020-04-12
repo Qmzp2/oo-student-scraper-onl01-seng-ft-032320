@@ -18,7 +18,7 @@ end
 def self.scrape_profile_page(profile_url)
     html = open(profile_url)
     doc = Nokogiri::HTML(html)
-    hash_slinging_slasher = {}
+    hash_slinging_slasher = {}  #The shash wringing...the trash thinging... mash flinging.. the flash springing, bringing the chrash thinging...the....
 
    social = doc.css(".vitals-container .social-icon-container a")
   social.each do |element|
