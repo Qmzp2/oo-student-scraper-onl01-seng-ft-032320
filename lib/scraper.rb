@@ -18,10 +18,10 @@ end
 def self.scrape_profile_page(profile_url)
     html = open(profile_url)
     doc = Nokogiri::HTML(html)
-    hash_slingging = {}
+    hash_slinging_slasher = {}
 
    social = doc.css(".vitals-container .social-icon-container a")
-  social.each do |element| #iterate through each of the social elements and assign the keys if the item exists
+  social.each do |element|
      if element.attr('href').include?("twitter")
        return_hash[:twitter] = element.attr('href')
     elsif element.attr('href').include?("linkedin")
@@ -29,13 +29,13 @@ def self.scrape_profile_page(profile_url)
        elsif element.attr('href').include?("github")
        return_hash[:github] = element.attr('href')
        elsif element.attr('href').end_with?("com/")
-      return_hash[:blog] = element.attr('href')
+      hash_slinging_slasher[:blog] = element.attr('href')
      end
       end
-   return_hash[:profile_quote] = doc.css(".vitals-container .vitals-text-container .profile-quote").text
-      return_hash[:bio] = doc.css(".bio-block.details-block .bio-content.content-holder .description-holder p").text
+   hash_slinging_slasher[:profile_quote] = doc.css(".vitals-container .vitals-text-container .profile-quote").text
+      hash_slinging_slasher[:bio] = doc.css(".bio-block.details-block .bio-content.content-holder .description-holder p").text
 
-  return_hash
+  hash_slinging_slasher
   end
 
 end
