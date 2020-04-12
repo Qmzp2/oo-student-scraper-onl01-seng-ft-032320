@@ -18,18 +18,17 @@ end
 def self.scrape_profile_page(profile_url)
     html = open(profile_url)
     doc = Nokogiri::HTML(html)
-    hash_slinging_slasher = {}  #The shash wringing...the trash thinging... mash flinging.. the flash springing, bringing the chrash thinging...the....
-
+    hash_slinging_slasher = {}  #The shash wringing...the trash thinging... mash flinging.. the flash springing, bringing the crash thinging...the....  (I hope noone reads my stupid notes)
    social = doc.css(".vitals-container .social-icon-container a")
-  social.each do |element|
-     if element.attr('href').include?("twitter")
-       hash_slinging_slasher[:twitter] = element.attr('href')
-    elsif element.attr('href').include?("linkedin")
-      hash_slinging_slasher[:linkedin] = element.attr('href')
-       elsif element.attr('href').include?("github")
-       hash_slinging_slasher[:github] = element.attr('href')
-       elsif element.attr('href').end_with?("com/")
-      hash_slinging_slasher[:blog] = element.attr('href')
+  social.each do |value|
+     if value.attr('href').include?("twitter")
+       hash_slinging_slasher[:twitter] = value.attr('href')
+    elsif value.attr('href').include?("linkedin")
+      hash_slinging_slasher[:linkedin] = value.attr('href')
+       elsif value.attr('href').include?("github")
+       hash_slinging_slasher[:github] = value.attr('href')
+       elsif value.attr('href').end_with?("com/")
+      hash_slinging_slasher[:blog] = value.attr('href')
      end
       end
    hash_slinging_slasher[:profile_quote] = doc.css(".vitals-container .vitals-text-container .profile-quote").text
