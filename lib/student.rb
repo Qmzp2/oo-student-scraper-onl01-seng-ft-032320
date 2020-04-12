@@ -8,13 +8,9 @@ class Student
     self.send("name=", hash_brown[:name])
     self.send("profile_url=", hash_brown[:profile_url])
     self.send("location=", hash_brown[:location])
-    save
   end
   
-  def save
-    @@all << self
-  end
-  
+  def save 
 
   def self.create_from_collection(students_array)
     
